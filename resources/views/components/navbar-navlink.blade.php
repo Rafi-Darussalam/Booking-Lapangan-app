@@ -1,0 +1,1 @@
+<a {{ $attributes }} class="{{ request()->is($attributes->get("href")) ? "text-blue-300" : "hover:text-black transition-all" }}">{{ $slot }}</a>
