@@ -25,9 +25,9 @@
                 <div class="text-[#0052FF] italic text-[1.5rem] font-bold">KINETIC ARENA</div>
                 <div class="font-bold text-gray-500 hidden md:flex gap-4 items-center">
                     <x-navbar-navlink href="/">Home</x-navbar-navlink>
-                    <x-navbar-navlink href="/futsal">Futsal</x-navbar-navlink>
-                    <x-navbar-navlink href="/badminton">Badminton</x-navbar-navlink>
-                    <x-navbar-navlink href="/tournaments">Tournaments</x-navbar-navlink>
+                    <x-navbar-navlink href="futsal">Futsal</x-navbar-navlink>
+                    <x-navbar-navlink href="badminton">Badminton</x-navbar-navlink>
+                    <x-navbar-navlink href="tournaments">Tournaments</x-navbar-navlink>
                     @if (Route::has('login'))
                         @auth
 

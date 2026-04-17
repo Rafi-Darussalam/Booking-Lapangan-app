@@ -24,9 +24,15 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected function casts(): array
     {
+        
+        
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function bookings() {
+        return $this->hasMany(Lapangan_book::class);
     }
 }

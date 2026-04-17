@@ -8,7 +8,11 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/dashboard', [UserController::class, 'index'])->middleware(['auth'])
+Route::get('futsal', function () {
+    return view('futsal');
+});
+
+Route::get('/dashboard', [UserController::class, 'index'])->middleware(['auth', 'verified'])
     ->name('dashboard');
 
 Route::middleware('auth')->group(function () {
