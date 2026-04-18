@@ -20,40 +20,7 @@
         @endif
     </head>
     <body>
-        <header>
-            <nav class="flex justify-between h-[4rem] items-center w-full px-9 border-b border-gray-300">
-                <div class="text-[#0052FF] italic text-[1.5rem] font-bold">KINETIC ARENA</div>
-                <div class="font-bold text-gray-500 hidden md:flex gap-4 items-center">
-                    <x-navbar-navlink href="/">Home</x-navbar-navlink>
-                    <x-navbar-navlink href="futsal">Futsal</x-navbar-navlink>
-                    <x-navbar-navlink href="badminton">Badminton</x-navbar-navlink>
-                    <x-navbar-navlink href="tournaments">Tournaments</x-navbar-navlink>
-                    @if (Route::has('login'))
-                        @auth
-                            @if (Auth::user()->role == "admin")
-                                <a href="{{ route('login') }}"
-                                    class="bg-[#0052FF] text-white py-1 px-2.5 rounded-md">
-                                    Admin
-                                </a>
-
-                            @endif
-                        @else
-                        <a href="{{ route('login') }}"
-                            class="bg-[#0052FF] text-white py-1 px-2.5 rounded-md">
-                            Log in
-                        </a>
-
-                            @if (Route::has('register'))
-                                <a href="{{ route('register') }}"
-                                    class="bg-[#0052FF] text-white py-1 px-2.5 rounded-md">
-                                    Register
-                                </a>
-                            @endif
-                        @endauth
-                    @endif
-                </div>
-            </nav>
-        </header>
+        
 
         {{ $slot }}
 

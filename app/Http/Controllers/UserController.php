@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function index() {
         if (Auth::check() && Auth::user()->role == "admin") {
-            return view('admin-dashboard');
+            return redirect('admin');
         } elseif (Auth::check() && Auth::user()->role == "user") {
             return view('dashboard');
         } else {
