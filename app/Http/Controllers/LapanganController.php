@@ -8,19 +8,20 @@ use Illuminate\Http\Request;
 class LapanganController extends Controller
 {
     public function index() {
-        $data = Lapangan::all();
-        return view('admin-dashboard', compact('data'));
+        $datas = Lapangan::all();
+        return view('admin-lapangan', compact('datas'));
     }
     public function create() {}
+
     public function store(Request $request) {
-        // dd($request->all());
         $request->validate([
             'nama'=>"required",
             'harga_per_jam'=>"required|numeric",
             'tipe'=>"required",
             'lokasi'=>"required",
             'deskripsi'=>"required",
-            "gambar"=>"required|image|mimes:jpeg,png,jpg|max:2048"
+            "gambar"=>"required|image|mimes:jpeg,png,jpg|max:2048",
+            'status'=>"required"
         ]);
 
         $data = $request->except('gambar');
@@ -33,9 +34,15 @@ class LapanganController extends Controller
         }
 
         Lapangan::create($data);
-        return redirect("admin")->with('success', 'Data berhasil ditambahkan');
+        return redirect("admin/lapangan")->with('success', 'Data berhasil ditambahkan');
     }
-    public function show($id) {}
+
+    public function show($id) {
+        $datas = Lapangan::findOrFail($id);
+
+        return view('admin-lapangan-show', compact('datas'));
+    }
+    
     public function edit($id) {}
     public function update(Request $request, $id) {}
     public function destroy($id) {}

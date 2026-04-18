@@ -13,7 +13,11 @@ Route::get('futsal', function () {
     return view('futsal');
 });
 
-Route::resource("admin", LapanganController::class)->middleware('admin');
+Route::get('/admin', function () {
+    return view('admin-dashboard');
+})->middleware('admin');
+
+Route::resource("admin/lapangan", LapanganController::class)->middleware('admin');
 
 Route::get('/dashboard', [UserController::class, 'index'])->middleware(['auth', 'verified'])
     ->name('dashboard');

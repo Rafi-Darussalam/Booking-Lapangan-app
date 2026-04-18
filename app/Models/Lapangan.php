@@ -13,6 +13,7 @@ class Lapangan extends Model
         'lokasi',
         'deskripsi',
         'gambar',
+        'status'
     ];
 
     public function bookings() {

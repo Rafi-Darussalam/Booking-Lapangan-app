@@ -19,10 +19,45 @@
             </style>
         @endif
     </head>
-    <body>
-        
+    <body class="bg-gray-50 flex">
+        <aside class="sticky top-0 left-0 bg-white h-screen py-5 px-3 border-r border-gray-200 flex flex-col md:items-center w-fit ">
+            <div class="flex flex-col gap-3">
+                <div>
+                    <p class="text-[#0052FF] font-bold text-[1.2rem] italic hidden md:block">KINETIC ARENA</p>
+                </div>
+                <div class="overflow-x-hidden overflow-y-auto flex flex-col gap-3 md:w-[12rem]">
+                    <div class="flex items-center gap-3 justify-center md:justify-start">
+                        <div class="bg-black w-10 h-10 rounded-full"></div>
+                        <div class="hidden md:block">
+                            <p class="font-bold">{{ Auth::user()->name }}</p>
+                            <p class="text-[0.6rem]">ADMIN</p>
+                        </div>
+                    </div>
+                    <x-admin-navlink href="/admin">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                            class="icon icon-tabler icons-tabler-filled icon-tabler-layout-board">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M5 3h5a1 1 0 0 1 1 1v3a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1v-2a2 2 0 0 1 2 -2" />
+                            <path d="M14 3h5a2 2 0 0 1 2 2v8a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1v-9a1 1 0 0 1 1 -1" />
+                            <path d="M14 16h6a1 1 0 0 1 1 1v2a2 2 0 0 1 -2 2h-5a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1" />
+                            <path d="M4 10h6a1 1 0 0 1 1 1v9a1 1 0 0 1 -1 1h-5a2 2 0 0 1 -2 -2v-8a1 1 0 0 1 1 -1" />
+                        </svg>
+                        <p class="hidden md:block">Dashboard</p>
+                    </x-admin-navlink>
+                    <x-admin-navlink href="/admin/lapangan">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-ball-football"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M12 7l4.76 3.45l-1.76 5.55h-6l-1.76 -5.55l4.76 -3.45" /><path d="M12 7v-4m3 13l2.5 3m-.74 -8.55l3.74 -1.45m-11.44 7.05l-2.56 2.95m.74 -8.55l-3.74 -1.45" /></svg>
+                        <p class="hidden md:block">Field Management</p>
+                    </x-admin-navlink>
+                </div>
+            </div>
+            <div>
 
-        {{ $slot }}
+            </div>
+        </aside>
+
+        <main class="overflow-hidden">
+            {{ $slot }}
+        </main>
 
     </body>
 </html>
